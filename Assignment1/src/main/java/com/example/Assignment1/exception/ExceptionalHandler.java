@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.ConstraintViolationException;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -25,10 +26,10 @@ public class ExceptionalHandler {
 	}
 	
 	@ResponseStatus(HttpStatus.CONFLICT)
-	@ExceptionHandler(value = SQLIntegrityConstraintViolationException.class)
-	public ResponseEntity<ErrorDetails> handleExceptions(SQLIntegrityConstraintViolationException ex){
+	@ExceptionHandler(value = DataIntegrityViolationException.class)
+	public ResponseEntity<ErrorDetails> handleExceptions(DataIntegrityViolationException ex){
 		List<String> errorList=new ArrayList<>();
-		errorList.add("Duplicate Entry found.");
+		errorList.add("Duplicate Entry found, Please Provide different Project Name");
 		ErrorDetails errorDetails=new ErrorDetails("ASS409", ex.getMessage(), errorList);
 		return new ResponseEntity<>(errorDetails,HttpStatus.CONFLICT);
 	}
