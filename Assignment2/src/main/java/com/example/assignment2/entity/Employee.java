@@ -10,6 +10,15 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name="Employee_Table")
 public class Employee {
@@ -31,49 +40,30 @@ public class Employee {
 	@NotEmpty(message = "City may not be null")
 	private String empCity;
 
-	public int getEmpId() {
-		return empId;
-	}
-
-	public void setEmpId(int empId) {
-		this.empId = empId;
-	}
-
-	public String getEmpName() {
-		return empName;
-	}
-
-	public void setEmpName(String empName) {
-		this.empName = empName;
-	}
-
-	public String getEmpDepartment() {
-		return empDepartment;
-	}
-
-	public void setEmpDepartment(String empDepartment) {
-		this.empDepartment = empDepartment;
-	}
-
-	public double getEmpSalary() {
-		return empSalary;
-	}
-
-	public void setEmpSalary(double empSalary) {
-		this.empSalary = empSalary;
-	}
-
-	public String getEmpCity() {
-		return empCity;
-	}
-
-	public void setEmpCity(String empCity) {
-		this.empCity = empCity;
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [empId=" + empId + ", empName=" + empName + ", empDepartment=" + empDepartment + ", empSalary="
-				+ empSalary + ", empCity=" + empCity + "]";
-	}
+	/*
+	 * public int getEmpId() { return empId; }
+	 * 
+	 * public void setEmpId(int empId) { this.empId = empId; }
+	 * 
+	 * public String getEmpName() { return empName; }
+	 * 
+	 * public void setEmpName(String empName) { this.empName = empName; }
+	 * 
+	 * public String getEmpDepartment() { return empDepartment; }
+	 * 
+	 * public void setEmpDepartment(String empDepartment) { this.empDepartment =
+	 * empDepartment; }
+	 * 
+	 * public double getEmpSalary() { return empSalary; }
+	 * 
+	 * public void setEmpSalary(double empSalary) { this.empSalary = empSalary; }
+	 * 
+	 * public String getEmpCity() { return empCity; }
+	 * 
+	 * public void setEmpCity(String empCity) { this.empCity = empCity; }
+	 * 
+	 * @Override public String toString() { return "Employee [empId=" + empId +
+	 * ", empName=" + empName + ", empDepartment=" + empDepartment + ", empSalary="
+	 * + empSalary + ", empCity=" + empCity + "]"; }
+	 */
 }
